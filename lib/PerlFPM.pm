@@ -9,6 +9,7 @@ use Currying::NumberType qw(isOdd isEven);
 use HighOrderFunction::Filter qw(filt);
 use HighOrderFunction::Map qw(mapp);
 use HighOrderFunction::Zip qw(zipp zipplist);
+use Applicative::Application qw(seqApplicationList);
 
 require Exporter;
 
@@ -21,6 +22,7 @@ our %EXPORT_TAGS = ('all' => [
 	eqto grtn grto smtn smto
 	isOdd isEven
 	filt mapp zipp zipplist
+	seqApplicationList
 	)
 ]);
 our @EXPORT_OK = (@{ $EXPORT_TAGS{'all'} });
