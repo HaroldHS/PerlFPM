@@ -31,7 +31,7 @@ use PerlFPM qw(mapp);
 ### Example
 
 > NOTE:
-> A sample file `main.pl` inside `/script` folder is provided in order to show the usage of PerlFPM.
+> Sample files `example*.pl` inside `/script` folder are provided in order to show the usage of PerlFPM.
 
 ```perl
 use lib '/home/user/PerlFPM/lib';
@@ -46,6 +46,8 @@ print "$_ " for @result; # 2 3 4
 
 ### Features
 
+- [x] Type
+- [ ] Typeclasses
 - [x] Currying
 - [x] High Order Function
 - [ ] Lazy Evaluation
