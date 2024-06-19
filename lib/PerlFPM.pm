@@ -13,9 +13,9 @@ use Type::List qw(list);
 use Operation::ListOperation qw(perlListToFunctionalList functionalListToPerlList printFunctionalList);
 
 # Curried Functions
-use Currying::Arithmetic qw(addn subn muln divn);
-use Currying::Equality qw(eqto grtn grto smtn smto);
-use Currying::NumberType qw(isOdd isEven);
+use Currying::Arithmetic qw(addn subn muln divn addition subtraction multiplication division);
+use Currying::Equality qw(eqto grtn grto smtn smto equal greaterThan greaterTo smallerThan smallerTo);
+use Currying::NumberType qw(isOdd isEven isOddInteger isEvenInteger);
 
 # Utilities / Functions which implement High Order Function
 use HighOrderFunction::Filter qw(imprFilter filtering);
@@ -33,9 +33,9 @@ our %EXPORT_TAGS = ('all' => [
 	qw(
 	integer float bool list
 	perlListToFunctionalList functionalListToPerlList printFunctionalList
-	addn subn muln divn
-	eqto grtn grto smtn smto
-	isOdd isEven
+	addn subn muln divn addition subtraction multiplication division
+	eqto grtn grto smtn smto equal greaterThan greaterTo smallerThan smallerTo
+	isOdd isEven isOddInteger isEvenInteger
 	imprFilter filtering
 	imprMap mapping
 	imprZip imprZipList

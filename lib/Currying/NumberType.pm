@@ -1,30 +1,41 @@
 package Currying::NumberType;
 
 use Exporter "import";
-our @EXPORT_OK = qw(isOdd isEven);
+our @EXPORT_OK = qw(isOdd isEven isOddInteger isEvenInteger);
 
 sub isOdd {
 	return sub {
 		my $num = $_[0];
-		if (defined($num & 1)) {
-			return ($num & 1) == 1 ? 1 : 0;
-		} elsif ($num1->getType()) {
-			return ($num1->getValue() & 1) == 1 ? 1 : 0;
-		} else {
-			die "[-] Undefined error in Currying::NumberType::isOdd()\n";
-		}
+		return ($num & 1) == 1 ? 1 : 0;
 	} 
 }
 
 sub isEven {
 	return sub {
 		my $num = $_[0];
-		if (defined($num & 1)) {
-			return ($num & 1) == 0 ? 1 : 0;
-		} elsif ($num1->getType()) {
-			return ($num1->getValue() & 1) == 0 ? 1 : 0;
+		return ($num & 1) == 0 ? 1 : 0;
+	}
+}
+
+
+sub isOddInteger {
+	return sub {
+		my $num = $_[0];
+		if ($num->getType() eq "Type::Integer") {
+			return ($num->getValue() & 1) == 1 ? 1 : 0;
 		} else {
-			die "[-] Undefined error in Currying::NumberType::isEven()\n";
+			die "[-] Invalid type in Currying::NumberType::isOddNumber()\n";
+		}
+	}
+}
+
+sub isEvenInteger {
+	return sub {
+		my $num = $_[0];
+		if ($num->getType() eq "Type::Integer") {
+			return ($num->getValue() & 1) == 0 ? 1 : 0;
+		} else {
+			die "[-] Invalid type in Currying::NumberType::isEvenNumber()\n";
 		}
 	}
 }

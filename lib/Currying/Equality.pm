@@ -1,22 +1,14 @@
 package Currying::Equality;
 
 use Exporter "import";
-our @EXPORT_OK = qw(eqto grtn grto smtn smto);
+our @EXPORT_OK = qw(eqto grtn grto smtn smto equal greaterThan greaterTo smallerThan smallerTo);
 
 sub eqto {
 	return sub {
 		$num1 = $_[0];
 		return sub {
 			$num2 = $_[0];
-			if (defined($num1 == $num2)) {
-				return $num1 == $num2 ? 1 : 0;
-			} elsif ($num1->getType() eq $num2->getType()) {
-				return $num1->getValue() == $num2->getValue() ? 1 : 0;
-			} elsif ($num1->getType() ne $num2->getType()) {
-				die "[-] Mismatch type for Currying::Equality::eqto()\n";
-			} else {
-				die "[-] Undefined error in Currying::Equality::eqto()\n";
-			}
+			return $num1 == $num2 ? 1 : 0;
 		}
 	}
 }
@@ -26,15 +18,7 @@ sub grtn {
 		$num1 = $_[0];
 		return sub {
 			$num2 = $_[0];
-			if (defined($num1 > $num2)) {
-				return $num1 > $num2 ? 1 : 0;
-			} elsif ($num1->getType() eq $num2->getType()) {
-				return $num1->getValue() > $num2->getValue() ? 1 : 0;
-			} elsif ($num1->getType() ne $num2->getType()) {
-				die "[-] Mismatch type for Currying::Equality::grtn()\n";
-			} else {
-				die "[-] Undefined error in Currying::Equality::grtn()\n";
-			}
+			return $num1 > $num2 ? 1 : 0;
 		}
 	}
 }
@@ -44,15 +28,7 @@ sub grto {
 		$num1 = $_[0];
 		return sub {
 			$num2 = $_[0];
-			if (defined($num1 >= $num2)) {
-				return $num1 >= $num2 ? 1 : 0;
-			} elsif ($num1->getType() eq $num2->getType()) {
-				return $num1->getValue() >= $num2->getValue() ? 1 : 0;
-			} elsif ($num1->getType() ne $num2->getType()) {
-				die "[-] Mismatch type for Currying::Equality::grto()\n";
-			} else {
-				die "[-] Undefined error in Currying::Equality::grto()\n";
-			}
+			return $num1 >= $num2 ? 1 : 0;
 		}
 	}
 }
@@ -62,15 +38,7 @@ sub smtn {
 		$num1 = $_[0];
 		return sub {
 			$num2 = $_[0];
-			if (defined($num1 < $num2)) {
-				return $num1 < $num2 ? 1 : 0;
-			} elsif ($num1->getType() eq $num2->getType()) {
-				return $num1->getValue() < $num2->getValue() ? 1 : 0;
-			} elsif ($num1->getType() ne $num2->getType()) {
-				die "[-] Mismatch type for Currying::Equality::smtn()\n";
-			} else {
-				die "[-] Undefined error in Currying::Equality::smtn()\n";
-			}
+			return $num1 < $num2 ? 1 : 0;
 		}
 	}
 }
@@ -80,14 +48,86 @@ sub smto {
 		$num1 = $_[0];
 		return sub {
 			$num2 = $_[0];
-			if (defined($num1 <= $num2)) {
-				return $num1 <= $num2 ? 1 : 0;
-			} elsif ($num1->getType() eq $num2->getType()) {
+			return $num1 <= $num2 ? 1 : 0;
+		}
+	}
+}
+
+sub equal {
+	return sub {
+		$num1 = $_[0];
+		return sub {
+			$num2 = $_[0];
+			if ($num1->getType() eq $num2->getType()) {
+				return $num1->getValue() == $num2->getValue() ? 1 : 0;
+			} elsif ($num1->getType() ne $num2->getType()) {
+				die "[-] Mismatch type for Currying::Equality::equal()\n";
+			} else {
+				die "[-] Undefined error in Currying::Equality::equal()\n";
+			}	
+		}
+	}
+}
+
+sub greaterThan {
+	return sub {
+		$num1 = $_[0];
+		return sub {
+			$num2 = $_[0];
+			if ($num1->getType() eq $num2->getType()) {
+				return $num1->getValue() > $num2->getValue() ? 1 : 0;
+			} elsif ($num1->getType() ne $num2->getType()) {
+				die "[-] Mismatch type for Currying::Equality::greaterThan()\n";
+			} else {
+				die "[-] Undefined error in Currying::Equality::greaterThan()\n";
+			}	
+		}
+	}
+}
+
+sub greaterTo {
+	return sub {
+		$num1 = $_[0];
+		return sub {
+			$num2 = $_[0];
+			if ($num1->getType() eq $num2->getType()) {
+				return $num1->getValue() >= $num2->getValue() ? 1 : 0;
+			} elsif ($num1->getType() ne $num2->getType()) {
+				die "[-] Mismatch type for Currying::Equality::greaterTo()\n";
+			} else {
+				die "[-] Undefined error in Currying::Equality::greaterTo()\n";
+			}	
+		}
+	}
+}
+
+sub smallerThan {
+	return sub {
+		$num1 = $_[0];
+		return sub {
+			$num2 = $_[0];
+			if ($num1->getType() eq $num2->getType()) {
+				return $num1->getValue() < $num2->getValue() ? 1 : 0;
+			} elsif ($num1->getType() ne $num2->getType()) {
+				die "[-] Mismatch type for Currying::Equality::smallerThan()\n";
+			} else {
+				die "[-] Undefined error in Currying::Equality::smallerThan()\n";
+			}	
+		}
+	}
+}
+
+sub smallerTo {
+	return sub {
+		$num1 = $_[0];
+		return sub {
+			$num2 = $_[0];
+			if ($num1->getType() eq $num2->getType()) {
 				return $num1->getValue() <= $num2->getValue() ? 1 : 0;
 			} elsif ($num1->getType() ne $num2->getType()) {
-				die "[-] Mismatch type for Currying::Equality::smto()\n";
+				die "[-] Mismatch type for Currying::Equality::smallerTo()\n";
 			} else {
-				die "[-] Undefined error in Currying::Equality::smto()\n";
+				die "[-] Undefined error in Currying::Equality::smallerTo()\n";
 			}	
 		}
 	}
