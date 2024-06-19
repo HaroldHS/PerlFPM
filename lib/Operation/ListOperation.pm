@@ -4,7 +4,7 @@ use FindBin qw($Bin);
 use lib "$Bin/../";
 
 use Exporter "import";
-our @EXPORT_OK = qw(perlListToFunctionalList functionalListToPerlList);
+our @EXPORT_OK = qw(perlListToFunctionalList functionalListToPerlList printFunctionalList);
 
 use Type::List qw(list);
 
@@ -39,6 +39,21 @@ sub functionalListToPerlList {
 
 	traverseFunctionalList($flist);
 	return @result;
+}
+
+sub printFunctionalList {
+	my ($flist, $separator) = @_;
+
+	sub traverseAndPrintFunctionalList {
+		if (($_[0]->getTail() eq "") or ($_[0]->getTail() eq "")) {
+			return;
+		} else {
+			print "".$_[0]->getHead().$separator;
+			traverseAndPrintFunctionalList($_[0]->getTail());
+		}
+	}
+
+	traverseAndPrintFunctionalList($flist);
 }
 
 1;

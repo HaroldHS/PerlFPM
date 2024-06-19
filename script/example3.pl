@@ -1,7 +1,7 @@
 use FindBin qw($Bin);
 use lib "$Bin/../lib/";
 
-use PerlFPM qw(addn f_mapp perlListToFunctionalList functionalListToPerlList);
+use PerlFPM qw(addn f_mapp f_filt isOdd perlListToFunctionalList functionalListToPerlList printFunctionalList);
 
 my @list = (1,2,3);
 my $result = perlListToFunctionalList(\@list);
@@ -14,6 +14,15 @@ f_mapp(\&$f, $result);
 my @f_mapp_result = functionalListToPerlList($result);
 print "[*] Perl list after f_mapp (addn (1)) (functional list of (1,2,3)): ";
 print "$_, " for @f_mapp_result;
+print "\n";
+
+my @list1 = (1,2,3,4,5,6);
+my $result1 = perlListToFunctionalList(\@list1);
+my $cf = isOdd;
+f_filt(\&$cf, $result1);
+my @f_filt_result = functionalListToPerlList($result1);
+print "[*] Perl list after f_filt (isOdd) (functional list of (1,2,3,4,5,6)): ";
+printFunctionalList($result1, ", ");
 print "\n";
 
 1;

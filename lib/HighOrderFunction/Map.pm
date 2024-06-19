@@ -20,11 +20,10 @@ sub f_mapp {
 	my $flist = $_[1];
 
 	sub traverseFunctionalList {
+		$_[0]->setHead( $function->($_[0]->getHead()) );
 		if ($_[0]->getTail() eq "") {
-			$_[0]->setHead( $function->($_[0]->getHead()) );
 			return;
 		} else {
-			$_[0]->setHead( $function->($_[0]->getHead()) );
 			traverseFunctionalList($_[0]->getTail());
 		}
 	}

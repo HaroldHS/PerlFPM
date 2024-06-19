@@ -20,13 +20,11 @@ sub getType {
 sub setHead {
 	my ($self, $object) = @_;
 	$self->{head} = $object;
-	return $self->{head};
 }
 
 sub setTail {
 	my ($self, $object) = @_;
 	$self->{tail} = $object;
-	return $self->{tail};
 }
 
 sub getHead {
