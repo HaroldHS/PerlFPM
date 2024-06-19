@@ -18,12 +18,12 @@ use Currying::Equality qw(eqto grtn grto smtn smto);
 use Currying::NumberType qw(isOdd isEven);
 
 # Utilities / Functions which implement High Order Function
-use HighOrderFunction::Filter qw(filt f_filt);
-use HighOrderFunction::Map qw(mapp f_mapp);
-use HighOrderFunction::Zip qw(zipp zipplist);
+use HighOrderFunction::Filter qw(imprFilter filtering);
+use HighOrderFunction::Map qw(imprMap mapping);
+use HighOrderFunction::Zip qw(imprZip imprZipList);
 
 # Applicative
-use Applicative::Application qw(seqApplicationList);
+use Applicative::Application qw(imprSeqApplication);
 
 
 require Exporter;
@@ -36,10 +36,10 @@ our %EXPORT_TAGS = ('all' => [
 	addn subn muln divn
 	eqto grtn grto smtn smto
 	isOdd isEven
-	filt f_filt
-	mapp f_mapp
-	zipp zipplist
-	seqApplicationList
+	imprFilter filtering
+	imprMap mapping
+	imprZip imprZipList
+	imprSeqApplication
 	)
 ]);
 our @EXPORT_OK = (@{ $EXPORT_TAGS{'all'} });

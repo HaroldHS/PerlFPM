@@ -1,9 +1,9 @@
 package HighOrderFunction::Filter;
 
 use Exporter "import";
-our @EXPORT_OK = qw(filt f_filt);
+our @EXPORT_OK = qw(imprFilter filtering);
 
-sub filt {
+sub imprFilter {
 	my $conditional_function = $_[0];
 	my @target_list = @{$_[1]};
 	my @result = ();
@@ -17,7 +17,7 @@ sub filt {
 	return @result;
 }
 
-sub f_filt {
+sub filtering {
 	my $conditional_function = $_[0];
 	my $flist = $_[1];
 
