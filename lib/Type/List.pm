@@ -5,29 +5,38 @@ our @EXPORT_OK = qw(list);
 
 sub list {
 	my $self = {
-		value => shift
+		head => shift,
+		tail => shift
 	};
-
-	if (@{ $self->{value} }) {
-		bless $self, __PACKAGE__;
-		return $self;
-	} else {
-		die "[-] Given reference is not a list reference\n";
-	}
-}
-
-sub isList {
-	my ($self) = @_;
-	return 1;
-}
-
-sub getValue {
-	my ($self) = @_;
-	return @{$self->{value}};
+	bless $self, __PACKAGE__;
+	return $self;
 }
 
 sub getType {
+	my ($self) = @_;
 	return __PACKAGE__;
+}
+
+sub setHead {
+	my ($self, $object) = @_;
+	$self->{head} = $object;
+	return $self->{head};
+}
+
+sub setTail {
+	my ($self, $object) = @_;
+	$self->{tail} = $object;
+	return $self->{tail};
+}
+
+sub getHead {
+	my ($self) = @_;
+	return $self->{head};
+}
+
+sub getTail {
+	my ($self) = @_;
+	return $self->{tail};
 }
 
 1;
