@@ -1,9 +1,13 @@
 package HighOrderFunction::Zip;
 
-use Exporter "import";
-our @EXPORT_OK = qw(zipp zipplist);
+use FindBin qw($Bin);
+use lib "$Bin/../";
 
-use HighOrderFunction::Map qw(mapp);
+use Exporter "import";
+our @EXPORT_OK = qw(imprZip imprZipList zipping zippingList);
+
+use HighOrderFunction::Map qw(imprMap);
+use Type::List qw(list);
 
 # NOTE: DO NOT MODIFY. This subroutine is intended for mapping in ziplist. #
 sub apply {
@@ -18,7 +22,7 @@ sub apply {
 }
 ############################################################################
 
-sub zipp {
+sub imprZip {
 	my @list1 = @{$_[0]};
 	my @list2 = @{$_[1]};
 
@@ -38,13 +42,37 @@ sub zipp {
 	return @result;
 }
 
-sub zipplist {
+sub imprZipList {
 	my $function = $_[0];
 	my @list1 = @{$_[1]};
 	my @list2 = @{$_[2]};
 	
-	my @zipp_result = zipp(\@list1, \@list2);
-	return mapp(apply->($function), \@zipp_result);
+	my @zipp_result = imprZip(\@list1, \@list2);
+	return imprMap(apply->($function), \@zipp_result);
+}
+
+sub zipping {
+	my $flist1 = $_[0];
+	my $flist2 = $_[1];
+	my $result = list("", "");
+
+	#sub traverseFunctionalList2 {
+	#	if ($_[1]->getTail() eq "") {
+	#	} else {
+	#	}
+	#}
+
+	#sub traverseFunctionalList1 {
+	#	if () {
+	#		return;
+	#	} else {
+	#	}
+	#}
+
+	return $result;
+}
+
+sub zippingList {
 }
 
 1;

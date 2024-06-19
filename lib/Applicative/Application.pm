@@ -1,9 +1,9 @@
 package Applicative::Application;
 
 use Exporter "import";
-our @EXPORT_OK = qw(seqApplicationList);
+our @EXPORT_OK = qw(imprSeqApplication);
 
-sub seqApplicationList {
+sub imprSeqApplication {
 	my @curry_functions = @{$_[0]};
 	my @list = @{$_[1]};
 	my @applied_function_list = ();
