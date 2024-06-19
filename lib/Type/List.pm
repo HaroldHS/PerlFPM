@@ -26,4 +26,8 @@ sub getValue {
 	return @{$self->{value}};
 }
 
+sub getType {
+	return __PACKAGE__;
+}
+
 1;

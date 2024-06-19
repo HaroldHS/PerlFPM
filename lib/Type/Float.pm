@@ -21,4 +21,13 @@ sub isFloat {
 	return 1;
 }
 
+sub getValue {
+	my ($self) = @_;
+	return $self->{value};
+}
+
+sub getType {
+	return __PACKAGE__;
+}
+
 1;

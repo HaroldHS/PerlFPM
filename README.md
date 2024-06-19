@@ -1,5 +1,5 @@
 # PerlFPM
-PerlFPM (Perl Functional Programming Module) contains functionalities to utilize functional programming paradigm in Perl.
+PerlFPM (Perl Functional Programming Module) contains functionalities to utilize functional programming paradigm in Perl 5.
 
 > NOTE:
 > This module is not intended for utilizing all concepts of functional programming but to utilize some aspects of functional programming paradigm.
@@ -47,8 +47,7 @@ print "$_ " for @result; # 2 3 4
 ### Features
 
 - [x] Type
-- [ ] Typeclasses
 - [x] Currying
+- [ ] Function declaration
 - [x] High Order Function
-- [ ] Lazy Evaluation
-- [ ] Applicative
+- [ ] Applicative / Application
