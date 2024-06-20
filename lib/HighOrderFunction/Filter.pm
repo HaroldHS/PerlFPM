@@ -41,6 +41,7 @@ sub filtering {
 	}
 
 	traverseFunctionalList($flist);
+	return $flist;
 }
 
 1;

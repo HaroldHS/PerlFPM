@@ -66,6 +66,8 @@ sub addition {
 					die "[-] Undefined error in Currying::Arithmetic::addition()\n";
 				}
 			} elsif ($num1->getType() ne $num2->getType()) {
+				#print "[ debug ] addition -> ".$num1->getValue()." != ".$num2->getType()."\n";
+				#print "[ debug ] addition -> ".$num2->getHead()->getValue()."\n";
 				die "[-] Mismatch type in Currying::Arithmetic::addition()\n";
 			} else {
 				die "[-] Undefined error in Currying::Arithmetic::addition()\n";

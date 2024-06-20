@@ -16,17 +16,13 @@ sub bool {
 	}
 }
 
-sub isBool {
-	my ($self) = @_;
-	return 1;
-}
-
 sub getValue {
 	my ($self) = @_;
 	return $self->{value};
 }
 
 sub getType {
+	my ($self) = @_;
 	return __PACKAGE__;
 }
 

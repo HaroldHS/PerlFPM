@@ -20,7 +20,9 @@ sub mapping {
 	my $flist = $_[1];
 
 	sub traverseFunctionalList {
-		$_[0]->setHead( $function->($_[0]->getHead()) );
+		my $elem = $_[0]->getHead();
+		$_[0]->setHead( $function->($elem) );
+
 		if ($_[0]->getTail() eq "") {
 			return;
 		} else {
@@ -29,6 +31,7 @@ sub mapping {
 	}
 
 	traverseFunctionalList($flist);
+	return $flist;
 }
 
 1;

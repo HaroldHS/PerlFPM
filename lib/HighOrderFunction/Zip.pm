@@ -4,12 +4,12 @@ use FindBin qw($Bin);
 use lib "$Bin/../";
 
 use Exporter "import";
-our @EXPORT_OK = qw(imprZip imprZipList zipping zippingList);
+our @EXPORT_OK = qw(imprZip imprZipList zipping zippingWithFunction);
 
-use HighOrderFunction::Map qw(imprMap);
+use HighOrderFunction::Map qw(imprMap mapping);
 use Type::List qw(list);
 
-# NOTE: DO NOT MODIFY. This subroutine is intended for mapping in ziplist. #
+# NOTE: DO NOT MODIFY. These subroutines are intended for imprZipList and zippingWithFunction. #
 sub apply {
 	return sub {
 		my $function = $_[0];
@@ -17,6 +17,17 @@ sub apply {
 		return sub {
 			my $pair = $_[0];
 			return $function->(@$pair[0])->(@$pair[1]);
+		}
+	}
+}
+
+sub functional_apply {
+	return sub {
+		my $function = $_[0];
+
+		return sub {
+			my $fpair = $_[0];
+			return $function->($fpair->getHead())->($fpair->getTail());
 		}
 	}
 }
@@ -56,23 +67,29 @@ sub zipping {
 	my $flist2 = $_[1];
 	my $result = list("", "");
 
-	#sub traverseFunctionalList2 {
-	#	if ($_[1]->getTail() eq "") {
-	#	} else {
-	#	}
-	#}
+	sub traverseAndMakePairFromFunctionalLists {
+		if (($_[1]->getTail() eq "") or ($_[2]->getTail() eq "")) {
+			$_[0]->setHead( list($_[1]->getHead(), $_[2]->getHead()) );
+			$_[0]->setTail("");
+			return;
+		} else {
+			# Create a list contains 2 elements (a pair) and set them up
+			$next_list = list("", "");
+			$_[0]->setHead( list($_[1]->getHead(), $_[2]->getHead()) );
+			$_[0]->setTail($next_list);
+			traverseAndMakePairFromFunctionalLists($_[0]->getTail(), $_[1]->getTail(), $_[2]->getTail());
+		}
+	}
 
-	#sub traverseFunctionalList1 {
-	#	if () {
-	#		return;
-	#	} else {
-	#	}
-	#}
-
+	traverseAndMakePairFromFunctionalLists($result, $flist1, $flist2);
 	return $result;
 }
 
-sub zippingList {
+sub zippingWithFunction {
+	my ($function, $flist1, $flist2) = @_;
+	my $zippingResult = zipping($flist1, $flist2);
+	my $finalResult = mapping(functional_apply->($function), $zippingResult);
+	return $finalResult;
 }
 
 1;

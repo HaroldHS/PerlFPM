@@ -13,4 +13,4 @@ print "[*] addition (integer 10) (integer 20) = ".$result->getValue()."\n";
 print "[*] greaterThan (interger 10) (integer 15) = ".greaterThan->(integer("10"))->(integer("15"))."\n";
 print "[*] smallerTo (interger 10) (integer 15) = ".smallerTo->(integer("10"))->(integer("15"))."\n";
 
-print "[*] isOdd (integer 15) = ".isOddInteger->(integer("15"))."\n";
+print "[*] isOddInteger (integer 15) = ".isOddInteger->(integer("15"))."\n";
