@@ -32,7 +32,9 @@ use PerlFPM qw(imprMap);
 
 > NOTE:
 > Sample files `example*.pl` inside `/script` folder are provided in order to show the usage of PerlFPM.
+<br/>
 
+#### Imperative implementation
 ```perl
 use lib '/home/user/PerlFPM/lib';
 use PerlFPM qw(addn imprMap);
@@ -41,6 +43,25 @@ my @input = (1,2,3);
 my $addn1_function = addn->(1);
 my @result = imprMap(\&$addn1_function, \@input);
 print "$_ " for @result; # 2 3 4
+```
+<br/>
+
+#### Functional implementation
+```perl
+use lib '/home/user/PerlFPM/lib';
+use PerlFPM qw(subtraction zippingWithFunction perlListToFunctionalList printFunctionalList);
+
+# Input
+my @input1 = (4,5,6);
+my @input2 = (2,3);
+my $subtract = subtraction;
+
+# Convert to functional list
+my $flist1 = perlListToFunctionalList(\@input1);
+my $flist2 = perlListToFunctionalList(\@input2);
+
+my $result = zippingWithFunction(\&$subtract, $flist1, $flist2);
+printFunctionalList($result, ", "); # (2, 2)
 ```
 <br/>
 

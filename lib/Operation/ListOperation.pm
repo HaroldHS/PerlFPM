@@ -4,7 +4,7 @@ use FindBin qw($Bin);
 use lib "$Bin/../";
 
 use Exporter "import";
-our @EXPORT_OK = qw(perlListToFunctionalList functionalListToPerlList printFunctionalList printZipFunctionalList);
+our @EXPORT_OK = qw(perlListToFunctionalList functionalListToPerlList printFunctionalList print2DFunctionalList);
 
 use Type::Integer qw(integer);
 use Type::Float qw(float);
@@ -77,7 +77,7 @@ sub printFunctionalList {
 	print ")\n";
 }
 
-sub printZipFunctionalList {
+sub print2DFunctionalList {
 	my ($flist, $separator) = @_;
 
 	sub traverseZipAndPrintFunctionalList {

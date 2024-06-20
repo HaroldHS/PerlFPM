@@ -6,7 +6,7 @@ use PerlFPM qw(
 	addition subtraction
 	isOddInteger
 	mapping filtering zipping zippingWithFunction
-	perlListToFunctionalList functionalListToPerlList printFunctionalList printZipFunctionalList);
+	perlListToFunctionalList functionalListToPerlList printFunctionalList print2DFunctionalList);
 
 my @list = (1,2,3);
 my $result = perlListToFunctionalList(\@list);
@@ -33,15 +33,6 @@ my $flistNum1 = perlListToFunctionalList(\@listNum1);
 my $flistNum2 = perlListToFunctionalList(\@listNum2);
 my $zippingResult = zipping($flistNum1, $flistNum2);
 print "[*] Functional list after zipping (functional list (1,2,3)) (functional list (4,5)) = ";
-printZipFunctionalList($zippingResult, ", ");
-
-#my $addn10 = addition->(integer("10"));
-#my $subn5 = subtraction->(integer("5"));
-#my @listFunctions = (\&$addn10, \&$subn5);
-#my $flistFunctions = perlListToFunctionalList(\@listFunctions);
-#my @listIntegers = (integer("1"), integer("2"));
-#my $flistIntegers = perlListToFunctionalList(\@listIntegers);
-#my @listIntegers1 = (integer("3"), integer("4"));
-#my $flistIntegers1 = perlListToFunctionalList(\@listIntegers1);
+print2DFunctionalList($zippingResult, ", ");
 
 1;

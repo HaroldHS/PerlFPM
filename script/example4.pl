@@ -5,7 +5,7 @@ use PerlFPM qw(
 	integer
 	subtraction
 	zippingWithFunction
-	perlListToFunctionalList functionalListToPerlList printFunctionalList printZipFunctionalList
+	perlListToFunctionalList functionalListToPerlList printFunctionalList
 );
 
 my $subtract = subtraction;

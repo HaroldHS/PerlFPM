@@ -11,7 +11,7 @@ use Type::Any qw(any);
 use Type::List qw(list);
 
 # Operations
-use Operation::ListOperation qw(perlListToFunctionalList functionalListToPerlList printFunctionalList printZipFunctionalList);
+use Operation::ListOperation qw(perlListToFunctionalList functionalListToPerlList printFunctionalList print2DFunctionalList);
 
 # Curried Functions
 use Currying::Arithmetic qw(addn subn muln divn addition subtraction multiplication division);
@@ -33,7 +33,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ('all' => [
 	qw(
 	integer float bool any list
-	perlListToFunctionalList functionalListToPerlList printFunctionalList printZipFunctionalList
+	perlListToFunctionalList functionalListToPerlList printFunctionalList print2DFunctionalList
 	addn subn muln divn addition subtraction multiplication division
 	eqto grtn grto smtn smto equal greaterThan greaterTo smallerThan smallerTo
 	isOdd isEven isOddInteger isEvenInteger

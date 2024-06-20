@@ -21,7 +21,7 @@ sub mapping {
 
 	sub traverseFunctionalList {
 		my $elem = $_[0]->getHead();
-		$_[0]->setHead( $function->($elem) );
+		$_[0]->setHead($function->($elem));
 
 		if ($_[0]->getTail() eq "") {
 			return;
