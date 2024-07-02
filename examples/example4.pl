@@ -14,5 +14,5 @@ my @list2 = (1,2,);
 my $flist1 = perlListToFunctionalList(\@list1);
 my $flist2 = perlListToFunctionalList(\@list2);
 my $result = zippingWithFunction(\&$subtract, $flist1, $flist2);
-print "[*] Functional list after zipping (functional list (4,5,6)) (functional list (1,2)) = ";
+print "[*] Functional list after zipping (subtract) (functional list (4,5,6)) (functional list (1,2)) = ";
 printFunctionalList($result, ", ");
