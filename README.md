@@ -1,5 +1,5 @@
 # PerlFPM
-PerlFPM (Perl Functional Programming Module) contains functionalities to utilize functional programming paradigm in Perl 5.
+PerlFPM (Perl Functional Programming Module) contains functionalities to utilize functional programming paradigm for Perl 5.
 
 > NOTE:
 > This module is not intended for utilizing all concepts of functional programming but to utilize some aspects of functional programming paradigm.
@@ -17,7 +17,7 @@ use PerlFPM qw();
 ```
 
 > NOTE:
-> Obtaining directory location of PerlFPM could be done with going inside the directory of PerlFPM and run `pwd` command for Linux or `chdir` command for Windows.
+> Obtaining the directory path of PerlFPM could be done by traversing inside the directory of PerlFPM and run `pwd` command for Linux or `chdir` command for Windows.
 <br/>
 
 As an example: If PerlFPM folder located in `/home/user/PerlFPM`, then append this code snippet inside the perl file.
@@ -31,7 +31,7 @@ use PerlFPM qw(imprMap);
 ### Example
 
 > NOTE:
-> Sample files `example*.pl` inside `/script` folder are provided in order to show the usage of PerlFPM.
+> Sample files `example*.pl` inside `/examples` folder are provided in order to show the usage of PerlFPM.
 <br/>
 
 #### Imperative implementation
@@ -69,6 +69,6 @@ printFunctionalList($result, ", "); # (2, 2)
 
 - [x] Type
 - [x] Currying
-- [ ] Function declaration
 - [x] High Order Function
-- [ ] Applicative / Application
+- [x] Function Signature
+- [x] Application

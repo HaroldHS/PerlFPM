@@ -47,6 +47,6 @@ my $muln2 = muln->(2);
 my @functions_list = (\&$addn1, \&$muln2);
 my @input_list = (1,2);
 my @seq_application_result = imprSeqApplication(\@functions_list, \@input_list);
-print "[*] imprSeqApplication ((addn 1), (muln 2)) (1,2) : (";
+print "[*] imprSeqApplication ((addn 1), (muln 2)) (1,2) = (";
 print "$_, " for @seq_application_result;
 print ")\n";
